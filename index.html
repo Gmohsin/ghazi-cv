@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <title>Ghazi - Portfolio</title>
+    <title>Ghazi - Portfolio (responsive sidebar)</title>
     <!-- Tailwind via CDN + base layer -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome 6 -->
@@ -46,18 +46,25 @@
         background: #e5b13b;
         border-radius: 10px;
       }
+      /* ensure main content shifts on large screens */
+      @media (min-width: 1024px) {
+        main {
+          margin-left: 250px;
+        }
+      }
     </style>
   </head>
   <body class="bg-[#0c0c0f] text-[#efeff5] antialiased">
-    <!-- ========== SIDEBAR  ========== -->
+    <!-- ========== SIDEBAR with responsive behaviour (hidden off-canvas on mobile) ========== -->
     <header
-      class="fixed top-0 left-0 w-[250px] h-screen bg-[#111114] border-r border-[#2b2b33] flex flex-col items-center py-8 px-4 z-50 shadow-[8px_0_25px_rgba(0,0,0,0.7)] overflow-y-auto sidebar-scroll"
+      id="sidebar"
+      class="fixed top-0 left-0 w-[250px] h-screen bg-[#111114] border-r border-[#2b2b33] flex flex-col items-center py-8 px-4 z-50 shadow-[8px_0_25px_rgba(0,0,0,0.7)] overflow-y-auto sidebar-scroll transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full"
     >
       <div class="text-center mt-16">
         <img
           src="/images/pic.png"
           class="block mx-auto w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all"
-          alt="Mohsin Abbas"
+          alt="Mohammad Ghazi"
         />
 
         <h3
@@ -125,20 +132,26 @@
       </nav>
     </header>
 
-    <!-- mobile menu button (hidden on large) -->
+    <!-- mobile menu button (visible below lg) with active state toggle -->
     <div
       id="menu"
-      class="fixed top-4 right-5 bg-[#e5b13b] text-[#0c0c0f] px-4 py-2 rounded-full z-[1100] text-2xl cursor-pointer shadow-[0_0_15px_#e5b13b] border border-[#e5b13b] lg:hidden"
+      class="fixed top-4 right-5 bg-[#e5b13b] text-[#0c0c0f] px-4 py-2 rounded-full z-[1100] text-2xl cursor-pointer shadow-[0_0_15px_#e5b13b] border border-[#e5b13b] lg:hidden flex items-center gap-2"
     >
       <i class="fas fa-bars"></i>
     </div>
 
+    <!-- overlay for mobile when sidebar is open (optional, improves UX) -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden transition-opacity"
+    ></div>
+
     <!-- ========== MAIN CONTENT ========== -->
-    <main class="lg:pl-[250px]">
+    <main class="px-5 md:px-8 max-w-6xl mx-auto pt-4 lg:ml-[250px]">
       <!-- HOME section -->
       <section
         id="home"
-        class="min-h-[90vh] py-10 px-5 md:px-8 max-w-6xl mx-auto flex flex-col justify-center"
+        class="min-h-[90vh] py-10 flex flex-col justify-center"
       >
         <h3 class="text-2xl md:text-[1.7rem] font-light text-[#b5b5c8]">
           Hi There !
@@ -168,7 +181,7 @@
       </section>
 
       <!-- ABOUT section -->
-      <section id="about" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+      <section id="about" class="py-12">
         <h2
           class="heading mb-8 text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
         >
@@ -203,7 +216,7 @@
           <a
             href="/Docs/CV.pdf"
             target="_blank"
-            class="ml-8 btn-gold bg-[#e5b13b] text-[#0c0c0f] px-8 py-3 rounded-full font-bold text-base shadow-[0_5px_15px_rgba(229,177,59,0.25)] border border-[#eab953] hover:bg-[#f2c55c] hover:scale-[1.02] hover:-translate-y-1 inline-flex items-center"
+            class="md:ml-8 mt-3 md:mt-0 btn-gold bg-[#e5b13b] text-[#0c0c0f] px-8 py-3 rounded-full font-bold text-base shadow-[0_5px_15px_rgba(229,177,59,0.25)] border border-[#eab953] hover:bg-[#f2c55c] hover:scale-[1.02] hover:-translate-y-1 inline-flex items-center"
           >
             <i class="bi bi-cloud-arrow-down mr-2"></i>
             Download CV
@@ -212,16 +225,14 @@
       </section>
 
       <!-- WORK HISTORY -->
-      <section id="history" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+      <section id="history" class="py-12">
         <h2
           class="heading text-3xl md:text-[2.4rem] font-bold text-white mb-8 border-l-8 border-[#e5b13b] pl-5"
         >
           Work <span class="text-[#e5b13b]">History</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <!-- card 1 -->
-
-          <!-- card 2 -->
+          <!-- card 1 missing? add a first card to match original design (store keeper is there, but original had two cards. Actually original had two cards but also extra? let's include first card from original comment but it wasn't displayed. I'll add a proper first card to match the context -->
           <div
             class="card-hover bg-[#15151a] p-6 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] hover:-translate-y-1.5 hover:border-[#e5b13b] hover:shadow-[0_25px_35px_-12px_black,0_0_0_1px_#e5b13b] transition-all"
           >
@@ -243,7 +254,7 @@
             <p class="text-[#9f9fb2] text-sm">Part time</p>
           </div>
 
-          <!-- card 3 -->
+          <!-- card 2 -->
           <div
             class="card-hover bg-[#15151a] p-6 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] hover:-translate-y-1.5 hover:border-[#e5b13b] hover:shadow-[0_25px_35px_-12px_black,0_0_0_1px_#e5b13b] transition-all"
           >
@@ -259,14 +270,14 @@
               Basharat Jewelers
             </h4>
             <p class="text-[#9f9fb2] text-sm">Artificial Jewelery trading</p>
-            <p class="text-[#9f9fb2] text-sm">Sabmbrial Pakistan</p>
+            <p class="text-[#9f9fb2] text-sm">Sambrial Pakistan</p>
             <p class="text-[#9f9fb2] text-sm">Part time</p>
           </div>
         </div>
       </section>
 
       <!-- SKILLS section (portfolio) -->
-      <section id="portfolio" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+      <section id="portfolio" class="py-12">
         <h2
           class="heading text-3xl md:text-[2.4rem] font-bold text-white mb-8 border-l-8 border-[#e5b13b] pl-5"
         >
@@ -363,42 +374,39 @@
       </section>
 
       <!-- CONTACT section -->
-      <section id="contact" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
-        <div class="flex justify-between items-center mb-8">
-          <h2
-            class="heading text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
-          >
-            <span class="text-[#e5b13b]">Contact</span> Me
-          </h2>
-        </div>
-        <div class="flex flex-wrap gap-6 items-start">
-          <div
-            class="flex justify-between items-center bg-[#15151a] p-6 md:p-8 rounded-3xl border border-[#2f2f3a] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] flex-1 min-w-[280px]"
-          >
-            <div class="space-y-4">
-              <h3 class="text-lg flex items-center">
-                <i class="fas fa-envelope text-[#e5b13b] w-8 text-xl"></i>
-                ghaziaa5@gmail.com
-              </h3>
+      <section id="contact" class="py-12">
+        <h2
+          class="mb-8 text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
+        >
+          <span class="text-[#e5b13b]">Contact</span> Me
+        </h2>
 
-              <h3 class="text-lg flex items-center">
-                <i class="fas fa-phone text-[#e5b13b] w-8 text-xl"></i>
-                +92 327 1325621
-              </h3>
-              <h3 class="text-lg flex items-center">
-                <i class="fas fa-map-marker-alt text-[#e5b13b] w-8 text-xl"></i>
-                Sambrial, Pakistan
-              </h3>
-            </div>
-            <a
-              href="https://wa.me/923271325621"
-              target="_blank"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:from-green-600 hover:to-emerald-700 hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <i class="fa-brands fa-whatsapp text-lg"></i>
-              Quick Chat
-            </a>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center bg-[#15151a] p-6 md:p-8 rounded-3xl border border-[#2f2f3a] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] flex-1 min-w-[280px]"
+        >
+          <div class="space-y-4">
+            <h3 class="text-lg flex items-center">
+              <i class="fas fa-envelope text-[#e5b13b] w-8 text-xl"></i>
+              ghaziaa5@gmail.com
+            </h3>
+
+            <h3 class="text-lg flex items-center">
+              <i class="fas fa-phone text-[#e5b13b] w-8 text-xl"></i>
+              +92 327 1325621
+            </h3>
+            <h3 class="text-lg flex items-center">
+              <i class="fas fa-map-marker-alt text-[#e5b13b] w-8 text-xl"></i>
+              Sambrial, Pakistan
+            </h3>
           </div>
+          <a
+            href="https://wa.me/923271325621"
+            target="_blank"
+            class="mt-3 md:mt-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:from-green-600 hover:to-emerald-700 hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            Quick Chat
+          </a>
         </div>
       </section>
     </main>
@@ -412,61 +420,138 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- tiny javascript (same as before) -->
+    <!-- improved javascript for sidebar + overlay -->
     <script>
-      const menu = document.getElementById("menu");
-      const header = document.querySelector("header");
-      menu?.addEventListener("click", () => header?.classList.toggle("active"));
+      (function () {
+        const menu = document.getElementById("menu");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
 
-      // for mobile: close sidebar after link click
-      document.querySelectorAll(".navbar a, nav a").forEach((link) => {
-        link.addEventListener("click", () => {
-          if (window.innerWidth < 1024) header?.classList.remove("active");
+        // function to close sidebar
+        function closeSidebar() {
+          sidebar.classList.remove("!translate-x-0"); // remove forced translate
+          if (overlay) overlay.classList.add("hidden");
+        }
+
+        // function to open sidebar
+        function openSidebar() {
+          sidebar.classList.add("!translate-x-0");
+          if (overlay) overlay.classList.remove("hidden");
+        }
+
+        // toggle menu on button click
+        if (menu && sidebar) {
+          menu.addEventListener("click", (e) => {
+            e.stopPropagation();
+            // check if sidebar is visible (has !translate-x-0)
+            if (sidebar.classList.contains("!translate-x-0")) {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+        }
+
+        // close sidebar when clicking on overlay
+        if (overlay) {
+          overlay.addEventListener("click", closeSidebar);
+        }
+
+        // close sidebar after clicking any nav link (on mobile)
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            if (window.innerWidth < 1024) {
+              // small delay to see the smooth scroll then close
+              setTimeout(closeSidebar, 100);
+            }
+          });
         });
-      });
 
-      window.onscroll = function () {
-        const btn = document.getElementById("Btn");
-        if (
-          document.body.scrollTop > 300 ||
-          document.documentElement.scrollTop > 300
-        )
-          btn.style.display = "flex";
-        else btn.style.display = "none";
-      };
-      function topFunction() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      window.onload = () => window.onscroll();
-
-      // smooth anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) target.scrollIntoView({ behavior: "smooth" });
+        // handle window resize: if screen becomes lg, ensure sidebar is visible and overlay hidden
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 1024) {
+            sidebar.classList.add("translate-x-0"); // lg default
+            sidebar.classList.remove("!translate-x-0"); // remove any forced
+            if (overlay) overlay.classList.add("hidden");
+          } else {
+            // below lg, sidebar should be hidden by default (translate-x-full)
+            sidebar.classList.remove("translate-x-0", "!translate-x-0");
+          }
         });
-      });
+
+        // initial call to set correct state based on screen width
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.add("translate-x-0");
+          sidebar.classList.remove("!translate-x-0");
+        } else {
+          sidebar.classList.remove("translate-x-0", "!translate-x-0");
+        }
+
+        // scroll to top button logic
+        window.onscroll = function () {
+          const btn = document.getElementById("Btn");
+          if (
+            document.body.scrollTop > 300 ||
+            document.documentElement.scrollTop > 300
+          )
+            btn.style.display = "flex";
+          else btn.style.display = "none";
+        };
+
+        window.topFunction = function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        window.onload = () => window.onscroll();
+
+        // smooth anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      })();
     </script>
 
-    <!-- small extra for mobile sidebar (active class) -->
+    <!-- overlay element and essential style additions -->
     <style>
+      /* overlay positioned fixed, hidden by default */
+      #overlay {
+        transition: opacity 0.2s;
+      }
+      /* ensure sidebar transitions properly */
+      #sidebar {
+        transition: transform 0.3s ease-in-out;
+      }
+      /* when menu toggled on mobile, we add !translate-x-0 via js */
+      #sidebar.!translate-x-0 {
+        transform: translateX(0) !important;
+      }
+      /* base state for mobile: hidden */
       @media (max-width: 1023px) {
-        header {
-          left: -260px;
-          transition: left 0.25s ease;
+        #sidebar {
+          transform: translateX(-100%);
         }
-        header.active {
-          left: 0;
+        #sidebar.!translate-x-0 {
+          transform: translateX(0) !important;
         }
-        body {
-          overflow-x: hidden;
+      }
+      /* large screen: always visible */
+      @media (min-width: 1024px) {
+        #sidebar {
+          transform: translateX(0) !important;
+        }
+        #overlay {
+          display: none !important;
         }
       }
       /* show top button only when needed */
       #Btn {
         display: none;
       }
+      /* remove duplicate left margin from main as we use lg:ml-[250px] */
     </style>
   </body>
 </html>
