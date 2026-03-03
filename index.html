@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Ghazi - Portfolio</title>
+    <!-- Tailwind via CDN + base layer -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- custom font (optional but matches Inter) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* tiny remaining custom styles – most is tailwind */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* smooth transitions for hover states (tailwind doesn't include all) */
+      .nav-link,
+      .btn-gold,
+      .card-hover,
+      .top-btn {
+        transition: all 0.2s ease;
+      }
+      /* custom scrollbar for sidebar (optional) */
+      .sidebar-scroll::-webkit-scrollbar {
+        width: 4px;
+      }
+      .sidebar-scroll::-webkit-scrollbar-thumb {
+        background: #e5b13b;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0c0c0f] text-[#efeff5] antialiased">
+    <!-- ========== SIDEBAR (fixed, perfect size) ========== -->
+    <header
+      class="fixed top-0 left-0 w-[250px] h-screen bg-[#111114] border-r border-[#2b2b33] flex flex-col items-center py-8 px-4 z-50 shadow-[8px_0_25px_rgba(0,0,0,0.7)] overflow-y-auto sidebar-scroll"
+    >
+      <div class="text-center">
+        <!-- profile image (tailwind sizing) -->
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2315151a' stroke='%23e5b13b' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='38' r='16' fill='%23e5b13b33'/%3E%3Ccircle cx='36' cy='34' r='3.5' fill='%23e5b13b'/%3E%3Ccircle cx='64' cy='34' r='3.5' fill='%23e5b13b'/%3E%3Cpath d='M36 56 Q50 68, 64 56' stroke='%23e5b13b' stroke-width='4' fill='none' stroke-linecap='round' /%3E%3C/svg%3E"
+          class="w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all"
+          alt="Mohsin Abbas"
+        />
+        <h3
+          class="text-2xl font-bold mt-4 mb-1 bg-gradient-to-r from-white to-[#e5b13b] bg-clip-text text-transparent"
+        >
+          Mohammad Ghazi
+        </h3>
+        <p
+          class="text-sm mt-2 font-medium inline-block px-4 py-1.5 rounded-md text-[#e5b13b]"
+        >
+          Accounts & Finance Admin
+        </p>
+      </div>
+
+      <!-- navigation (buttons perfectly sized) -->
+      <nav class="w-full mt-5">
+        <ul class="flex flex-col gap-1">
+          <li>
+            <a
+              href="#home"
+              class="nav-link flex gap-2 items-center py-2 px-3 text-[#a9a9b8] font-semibold text-base rounded-full hover:bg-[#e5b13b] hover:text-[#0c0c0f] hover:shadow-[0_5px_12px_rgba(229,177,59,0.25)] hover:-translate-y-0.5"
+            >
+              <i class="bi bi-house-door"></i>
+              Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="nav-link flex gap-2 items-center py-2 px-3 text-[#a9a9b8] font-semibold text-base rounded-full hover:bg-[#e5b13b] hover:text-[#0c0c0f] hover:shadow-[0_5px_12px_rgba(229,177,59,0.25)] hover:-translate-y-0.5"
+            >
+              <i class="bi bi-info-circle"></i>
+              About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#history"
+              class="nav-link flex gap-2 items-center py-2 px-3 text-[#a9a9b8] font-semibold text-base rounded-full hover:bg-[#e5b13b] hover:text-[#0c0c0f] hover:shadow-[0_5px_12px_rgba(229,177,59,0.25)] hover:-translate-y-0.5"
+            >
+              <i class="bi bi-clock-history"></i>
+              Work History</a
+            >
+          </li>
+          <li>
+            <a
+              href="#portfolio"
+              class="nav-link flex gap-2 items-center py-2 px-3 text-[#a9a9b8] font-semibold text-base rounded-full hover:bg-[#e5b13b] hover:text-[#0c0c0f] hover:shadow-[0_5px_12px_rgba(229,177,59,0.25)] hover:-translate-y-0.5"
+            >
+              <i class="bi bi-person-lines-fill"></i>
+              Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="nav-link flex gap-2 items-center py-2 px-3 text-[#a9a9b8] font-semibold text-base rounded-full hover:bg-[#e5b13b] hover:text-[#0c0c0f] hover:shadow-[0_5px_12px_rgba(229,177,59,0.25)] hover:-translate-y-0.5"
+            >
+              <i class="bi bi-telephone"></i>
+              contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- mobile menu button (hidden on large) -->
+    <div
+      id="menu"
+      class="fixed top-4 right-5 bg-[#e5b13b] text-[#0c0c0f] px-4 py-2 rounded-full z-[1100] text-2xl cursor-pointer shadow-[0_0_15px_#e5b13b] border border-[#e5b13b] lg:hidden"
+    >
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="lg:pl-[250px]">
+      <!-- HOME section -->
+      <section
+        id="home"
+        class="min-h-[90vh] py-10 px-5 md:px-8 max-w-6xl mx-auto flex flex-col justify-center"
+      >
+        <h3 class="text-2xl md:text-[1.7rem] font-light text-[#b5b5c8]">
+          Hi There !
+        </h3>
+        <h1
+          class="text-4xl md:text-[3.5rem] font-extrabold leading-tight mt-2 mb-4"
+        >
+          I'm
+          <span
+            class="bg-gradient-to-r from-[#f5cf7a] to-[#eec15c] bg-clip-text text-transparent"
+            >Mohammad Ghazi</span
+          >
+        </h1>
+        <p
+          class="text-[#c5c5d6] text-base text-justify md:text-[1.1rem] max-w-4xl my-5 bg-[#15151abf] backdrop-blur-sm p-6 md:p-7 rounded-3xl border border-[#32323e] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)]"
+        >
+          Detail-oriented and highly organized Accounts & Finance Administrator
+          with experience in managing financial records, processing invoices,
+          handling accounts payable and receivable, and supporting daily
+          accounting operations. Skilled in bookkeeping, financial reporting,
+          data entry, and maintaining accurate documentation. Proficient in MS
+          Office, Google Sheets with strong analytical abilities and a
+          commitment to accuracy, compliance, and efficiency with ability to
+          fast learning accounting softwares and Dedicated to supporting smooth
+          financial operations and contributing to organizational growth.
+        </p>
+      </section>
+
+      <!-- ABOUT section -->
+      <section id="about" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+          <h2
+            class="heading text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
+          >
+            About <span class="text-[#e5b13b]">Me</span>
+          </h2>
+          <button class="flex-none">
+            <a
+              href="/Docs/CV.pdf"
+              target="_blank"
+              class="btn-gold bg-[#e5b13b] text-[#0c0c0f] px-8 py-3 rounded-full font-bold text-base shadow-[0_5px_15px_rgba(229,177,59,0.25)] border border-[#eab953] hover:bg-[#f2c55c] hover:scale-[1.02] hover:-translate-y-1 inline-flex items-center"
+              ><i class="bi bi-cloud-arrow-down mr-2"></i> Download CV </i
+            ></a>
+          </button>
+        </div>
+
+        <div
+          class="info bg-[#15151a] p-6 md:p-7 rounded-3xl shadow border border-[#2c2c36]"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-[20%_80%] gap-y-4">
+            <span class="font-semibold text-[#e5b13b]">Name :</span>
+            <span class="text-[#e2e2ec]">Mohammad Ghazi</span>
+
+            <span class="font-semibold text-[#e5b13b]">Profession :</span>
+            <span class="text-[#e2e2ec]">Accounts & Finance Admin</span>
+
+            <span class="font-semibold text-[#e5b13b]">Qualification :</span>
+            <span class="text-[#e2e2ec]"
+              >Associate Degree in Accounting & Finance</span
+            >
+
+            <span class="font-semibold text-[#e5b13b]">Language :</span>
+            <span class="text-[#e2e2ec]"> English, Urdu, Punjabi </span>
+
+            <span class="font-semibold text-[#e5b13b]">Country :</span>
+            <span class="text-[#e2e2ec]">Pakistan</span>
+
+            <span class="font-semibold text-[#e5b13b]">Residency :</span>
+            <span class="text-[#e2e2ec]">Sambrial</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK HISTORY -->
+      <section id="history" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+        <h2
+          class="heading text-3xl md:text-[2.4rem] font-bold text-white mb-8 border-l-8 border-[#e5b13b] pl-5"
+        >
+          Work <span class="text-[#e5b13b]">History</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <!-- card 1 -->
+
+          <!-- card 2 -->
+          <div
+            class="card-hover bg-[#15151a] p-6 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] hover:-translate-y-1.5 hover:border-[#e5b13b] hover:shadow-[0_25px_35px_-12px_black,0_0_0_1px_#e5b13b] transition-all"
+          >
+            <div class="flex gap-3 items-center">
+              <i class="fa-solid fa-vest-patches"></i>
+              <span
+                class="bg-[#25252e] text-[#e5b13b] px-4 py-1 rounded-full text-xs font-semibold border border-[#40404d]"
+                >2022 - 2023</span
+              >
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-3">Store Keeper</h3>
+            <h4 class="text-lg font-semibold text-[#babad0]">
+              Toro Skins Pvt. Ltd
+            </h4>
+            <p class="text-[#9f9fb2] text-sm">
+              Manufacturer of Leather Garments
+            </p>
+            <p class="text-[#9f9fb2] text-sm">Sialkot Pakistan</p>
+            <p class="text-[#9f9fb2] text-sm">Part time</p>
+          </div>
+
+          <!-- card 3 -->
+          <div
+            class="card-hover bg-[#15151a] p-6 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] hover:-translate-y-1.5 hover:border-[#e5b13b] hover:shadow-[0_25px_35px_-12px_black,0_0_0_1px_#e5b13b] transition-all"
+          >
+            <div class="flex gap-3 items-center">
+              <i class="fa-solid fa-shop"></i>
+              <span
+                class="bg-[#25252e] text-[#e5b13b] px-4 py-1 rounded-full text-xs font-semibold border border-[#40404d]"
+                >2024 - 2026</span
+              >
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-3">Cashier</h3>
+            <h4 class="text-lg font-semibold text-[#babad0]">
+              Basharat Jewelers
+            </h4>
+            <p class="text-[#9f9fb2] text-sm">Artificial Jewelery trading</p>
+            <p class="text-[#9f9fb2] text-sm">Sabmbrial Pakistan</p>
+            <p class="text-[#9f9fb2] text-sm">Part time</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS section (portfolio) -->
+      <section id="portfolio" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+        <h2
+          class="heading text-3xl md:text-[2.4rem] font-bold text-white mb-8 border-l-8 border-[#e5b13b] pl-5"
+        >
+          My <span class="text-[#e5b13b]">Skills</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- professional -->
+          <div
+            class="bg-[#15151a] p-7 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)]"
+          >
+            <span
+              class="text-2xl font-bold text-[#e5b13b] block border-b-2 border-[#e5b13b] pb-2 mb-5 w-fit uppercase tracking-wide"
+              >Professional</span
+            >
+            <ul class="space-y-3">
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Handling Accounts Payable & Accounts Receivable
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Invoice Processing & Payment Follow-ups
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Bank Reconciliation
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >General Ledger Maintenance
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Financial Record Keeping
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Expense Tracking & Reporting
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Data Entry & Documentation Management
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Petty Cash Handling
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Time Management & Organizational Skills
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Strong Numerical & Analytical Skills
+              </li>
+            </ul>
+          </div>
+          <!-- technical -->
+          <div
+            class="bg-[#15151a] p-7 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)]"
+          >
+            <span
+              class="text-2xl font-bold text-[#e5b13b] block border-b-2 border-[#e5b13b] pb-2 mb-5 w-fit uppercase tracking-wide"
+              >Technical</span
+            >
+            <ul class="space-y-3">
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span>
+                MS Office (Excel, Word, Outlook, PowerPoint)
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span>
+                Google Docs
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Excel Power Query
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Data Scrapping
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span
+                >Strong Numerical & Analytical Skills
+              </li>
+              <li class="pl-5 relative text-[#d5d5e6]">
+                <span class="absolute left-0 text-[#e5b13b] text-xl">✦</span>
+                Accounts & Inventory softwares
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT section -->
+      <section id="contact" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+          <h2
+            class="heading text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
+          >
+            <span class="text-[#e5b13b]">Contact</span> Me
+          </h2>
+          <a
+            href="https://wa.me/923271325621"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:from-green-600 hover:to-emerald-700 hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            Quick Chat
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-6 items-start">
+          <div
+            class="bg-[#15151a] p-6 md:p-8 rounded-3xl border border-[#2f2f3a] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] flex-1 min-w-[280px]"
+          >
+            <div class="space-y-4">
+              <h3 class="text-lg flex items-center">
+                <i class="fas fa-envelope text-[#e5b13b] w-8 text-xl"></i>
+                ghaziaa5@gmail.com
+              </h3>
+
+              <h3 class="text-lg flex items-center">
+                <i class="fas fa-phone text-[#e5b13b] w-8 text-xl"></i>
+                +92 327 1325621
+              </h3>
+              <h3 class="text-lg flex items-center">
+                <i class="fas fa-map-marker-alt text-[#e5b13b] w-8 text-xl"></i>
+                Sambrial, Pakistan
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- scroll to top button -->
+    <button
+      id="Btn"
+      onclick="topFunction()"
+      class="top-btn fixed bottom-5 right-5 bg-[#e5b13b] text-[#0c0c0f] w-11 h-11 rounded-full text-2xl shadow-[0_0_20px_#e5b13b] border border-[#f5cf7a] flex items-center justify-center hover:bg-[#f2c55c] hover:scale-105 hover:-translate-y-1 z-[999]"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- tiny javascript (same as before) -->
+    <script>
+      const menu = document.getElementById("menu");
+      const header = document.querySelector("header");
+      menu?.addEventListener("click", () => header?.classList.toggle("active"));
+
+      // for mobile: close sidebar after link click
+      document.querySelectorAll(".navbar a, nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth < 1024) header?.classList.remove("active");
+        });
+      });
+
+      window.onscroll = function () {
+        const btn = document.getElementById("Btn");
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        )
+          btn.style.display = "flex";
+        else btn.style.display = "none";
+      };
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      window.onload = () => window.onscroll();
+
+      // smooth anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+
+    <!-- small extra for mobile sidebar (active class) -->
+    <style>
+      @media (max-width: 1023px) {
+        header {
+          left: -260px;
+          transition: left 0.25s ease;
+        }
+        header.active {
+          left: 0;
+        }
+        body {
+          overflow-x: hidden;
+        }
+      }
+      /* show top button only when needed */
+      #Btn {
+        display: none;
+      }
+    </style>
+  </body>
+</html>
