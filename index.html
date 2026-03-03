@@ -49,22 +49,23 @@
     </style>
   </head>
   <body class="bg-[#0c0c0f] text-[#efeff5] antialiased">
-    <!-- ========== SIDEBAR (fixed, perfect size) ========== -->
+    <!-- ========== SIDEBAR  ========== -->
     <header
       class="fixed top-0 left-0 w-[250px] h-screen bg-[#111114] border-r border-[#2b2b33] flex flex-col items-center py-8 px-4 z-50 shadow-[8px_0_25px_rgba(0,0,0,0.7)] overflow-y-auto sidebar-scroll"
     >
-      <div class="text-center">
-        <!-- profile image (tailwind sizing) -->
+      <div class="text-center mt-16">
         <img
-          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2315151a' stroke='%23e5b13b' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='38' r='16' fill='%23e5b13b33'/%3E%3Ccircle cx='36' cy='34' r='3.5' fill='%23e5b13b'/%3E%3Ccircle cx='64' cy='34' r='3.5' fill='%23e5b13b'/%3E%3Cpath d='M36 56 Q50 68, 64 56' stroke='%23e5b13b' stroke-width='4' fill='none' stroke-linecap='round' /%3E%3C/svg%3E"
-          class="w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all"
+          src="/images/pic.png"
+          class="block mx-auto w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all"
           alt="Mohsin Abbas"
         />
+
         <h3
-          class="text-2xl font-bold mt-4 mb-1 bg-gradient-to-r from-white to-[#e5b13b] bg-clip-text text-transparent"
+          class="text-2xl font-bold mt-4 mb-1 bg-gradient-to-r from-[#f5cf7a] to-[#eec15c] bg-clip-text text-transparent"
         >
           Mohammad Ghazi
         </h3>
+
         <p
           class="text-sm mt-2 font-medium inline-block px-4 py-1.5 rounded-md text-[#e5b13b]"
         >
@@ -152,7 +153,7 @@
           >
         </h1>
         <p
-          class="text-[#c5c5d6] text-base text-justify md:text-[1.1rem] max-w-4xl my-5 bg-[#15151abf] backdrop-blur-sm p-6 md:p-7 rounded-3xl border border-[#32323e] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)]"
+          class="text-[#c5c5d6] text-base text-justify md:text-[1.1rem] my-5 bg-[#15151abf] backdrop-blur-sm p-6 md:p-7 rounded-3xl border border-[#32323e] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)]"
         >
           Detail-oriented and highly organized Accounts & Finance Administrator
           with experience in managing financial records, processing invoices,
@@ -168,26 +169,16 @@
 
       <!-- ABOUT section -->
       <section id="about" class="py-12 px-5 md:px-8 max-w-6xl mx-auto">
-        <div class="flex justify-between items-center mb-8">
-          <h2
-            class="heading text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
-          >
-            About <span class="text-[#e5b13b]">Me</span>
-          </h2>
-          <button class="flex-none">
-            <a
-              href="/Docs/CV.pdf"
-              target="_blank"
-              class="btn-gold bg-[#e5b13b] text-[#0c0c0f] px-8 py-3 rounded-full font-bold text-base shadow-[0_5px_15px_rgba(229,177,59,0.25)] border border-[#eab953] hover:bg-[#f2c55c] hover:scale-[1.02] hover:-translate-y-1 inline-flex items-center"
-              ><i class="bi bi-cloud-arrow-down mr-2"></i> Download CV </i
-            ></a>
-          </button>
-        </div>
+        <h2
+          class="heading mb-8 text-3xl md:text-[2.4rem] font-bold text-white border-l-8 border-[#e5b13b] pl-5"
+        >
+          About <span class="text-[#e5b13b]">Me</span>
+        </h2>
 
         <div
-          class="info bg-[#15151a] p-6 md:p-7 rounded-3xl shadow border border-[#2c2c36]"
+          class="flex flex-col md:flex-row md:items-center md:justify-between info bg-[#15151a] p-6 md:p-7 rounded-3xl shadow border border-[#2c2c36]"
         >
-          <div class="grid grid-cols-1 md:grid-cols-[20%_80%] gap-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-[20%_80%] gap-y-4 flex-1">
             <span class="font-semibold text-[#e5b13b]">Name :</span>
             <span class="text-[#e2e2ec]">Mohammad Ghazi</span>
 
@@ -195,12 +186,12 @@
             <span class="text-[#e2e2ec]">Accounts & Finance Admin</span>
 
             <span class="font-semibold text-[#e5b13b]">Qualification :</span>
-            <span class="text-[#e2e2ec]"
-              >Associate Degree in Accounting & Finance</span
-            >
+            <span class="text-[#e2e2ec]">
+              Associate Degree in Accounting & Finance
+            </span>
 
             <span class="font-semibold text-[#e5b13b]">Language :</span>
-            <span class="text-[#e2e2ec]"> English, Urdu, Punjabi </span>
+            <span class="text-[#e2e2ec]">English, Urdu, Punjabi</span>
 
             <span class="font-semibold text-[#e5b13b]">Country :</span>
             <span class="text-[#e2e2ec]">Pakistan</span>
@@ -208,6 +199,15 @@
             <span class="font-semibold text-[#e5b13b]">Residency :</span>
             <span class="text-[#e2e2ec]">Sambrial</span>
           </div>
+
+          <a
+            href="/Docs/CV.pdf"
+            target="_blank"
+            class="ml-8 btn-gold bg-[#e5b13b] text-[#0c0c0f] px-8 py-3 rounded-full font-bold text-base shadow-[0_5px_15px_rgba(229,177,59,0.25)] border border-[#eab953] hover:bg-[#f2c55c] hover:scale-[1.02] hover:-translate-y-1 inline-flex items-center"
+          >
+            <i class="bi bi-cloud-arrow-down mr-2"></i>
+            Download CV
+          </a>
         </div>
       </section>
 
@@ -370,18 +370,10 @@
           >
             <span class="text-[#e5b13b]">Contact</span> Me
           </h2>
-          <a
-            href="https://wa.me/923271325621"
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:from-green-600 hover:to-emerald-700 hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            Quick Chat
-          </a>
         </div>
         <div class="flex flex-wrap gap-6 items-start">
           <div
-            class="bg-[#15151a] p-6 md:p-8 rounded-3xl border border-[#2f2f3a] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] flex-1 min-w-[280px]"
+            class="flex justify-between items-center bg-[#15151a] p-6 md:p-8 rounded-3xl border border-[#2f2f3a] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] flex-1 min-w-[280px]"
           >
             <div class="space-y-4">
               <h3 class="text-lg flex items-center">
@@ -398,6 +390,14 @@
                 Sambrial, Pakistan
               </h3>
             </div>
+            <a
+              href="https://wa.me/923271325621"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:from-green-600 hover:to-emerald-700 hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              Quick Chat
+            </a>
           </div>
         </div>
       </section>
