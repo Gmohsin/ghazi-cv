@@ -61,11 +61,15 @@
       class="fixed top-0 left-0 w-[250px] h-screen bg-[#111114] border-r border-[#2b2b33] flex flex-col items-center py-8 px-4 z-50 shadow-[8px_0_25px_rgba(0,0,0,0.7)] overflow-y-auto sidebar-scroll transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full"
     >
       <div class="text-center mt-16">
-        <img
-          src="/images/pic.png"
-          class="block mx-auto w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all"
-          alt="Mohammad Ghazi"
-        />
+        <div
+          class="block mx-auto w-[120px] h-[120px] rounded-full border-4 border-[#e5b13b] p-1 bg-[#1e1e26] shadow-[0_0_15px_rgba(229,177,59,0.25)] hover:border-[#f2c55c] hover:scale-[1.02] transition-all overflow-hidden"
+        >
+          <img
+            src="/images/pic.png"
+            alt="Mohammad Ghazi"
+            class="w-full h-full object-cover rounded-full brightness-90"
+          />
+        </div>
 
         <h3
           class="text-2xl font-bold mt-4 mb-1 bg-gradient-to-r from-[#f5cf7a] to-[#eec15c] bg-clip-text text-transparent"
