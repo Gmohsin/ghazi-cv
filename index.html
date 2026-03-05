@@ -21,24 +21,22 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
-    <!-- custom font (optional but matches Inter) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
       rel="stylesheet"
     />
     <style>
-      /* tiny remaining custom styles – most is tailwind */
       body {
         font-family: "Inter", sans-serif;
       }
-      /* smooth transitions for hover states (tailwind doesn't include all) */
+
       .nav-link,
       .btn-gold,
       .card-hover,
       .top-btn {
         transition: all 0.2s ease;
       }
-      /* custom scrollbar for sidebar (optional) */
+      /* custom scrollbar for sidebar */
       .sidebar-scroll::-webkit-scrollbar {
         width: 4px;
       }
@@ -84,7 +82,7 @@
         </p>
       </div>
 
-      <!-- navigation (buttons perfectly sized) -->
+      <!-- navigation -->
       <nav class="w-full mt-5">
         <ul class="flex flex-col gap-1">
           <li>
@@ -136,7 +134,7 @@
       </nav>
     </header>
 
-    <!-- mobile menu button (visible below lg) with active state toggle -->
+    <!-- mobile menu button -->
     <div
       id="menu"
       class="fixed top-4 right-5 bg-[#e5b13b] text-[#0c0c0f] px-4 py-2 rounded-full z-[1100] text-2xl cursor-pointer shadow-[0_0_15px_#e5b13b] border border-[#e5b13b] lg:hidden flex items-center gap-2"
@@ -144,7 +142,7 @@
       <i class="fas fa-bars"></i>
     </div>
 
-    <!-- overlay for mobile when sidebar is open (optional, improves UX) -->
+    <!-- overlay for mobile when sidebar is open -->
     <div
       id="overlay"
       class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden transition-opacity"
@@ -236,7 +234,6 @@
           Work <span class="text-[#e5b13b]">History</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <!-- card 1 missing? add a first card to match original design (store keeper is there, but original had two cards. Actually original had two cards but also extra? let's include first card from original comment but it wasn't displayed. I'll add a proper first card to match the context -->
           <div
             class="card-hover bg-[#15151a] p-6 rounded-3xl border border-[#2b2b33] shadow-[0_15px_30px_-12px_black,0_0_0_1px_rgba(229,177,59,0.15)] hover:-translate-y-1.5 hover:border-[#e5b13b] hover:shadow-[0_25px_35px_-12px_black,0_0_0_1px_#e5b13b] transition-all"
           >
@@ -424,7 +421,6 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- improved javascript for sidebar + overlay -->
     <script>
       (function () {
         const menu = document.getElementById("menu");
@@ -447,7 +443,7 @@
         if (menu && sidebar) {
           menu.addEventListener("click", (e) => {
             e.stopPropagation();
-            // check if sidebar is visible (has !translate-x-0)
+
             if (sidebar.classList.contains("!translate-x-0")) {
               closeSidebar();
             } else {
@@ -471,14 +467,13 @@
           });
         });
 
-        // handle window resize: if screen becomes lg, ensure sidebar is visible and overlay hidden
+        // handle window resize
         window.addEventListener("resize", function () {
           if (window.innerWidth >= 1024) {
             sidebar.classList.add("translate-x-0"); // lg default
             sidebar.classList.remove("!translate-x-0"); // remove any forced
             if (overlay) overlay.classList.add("hidden");
           } else {
-            // below lg, sidebar should be hidden by default (translate-x-full)
             sidebar.classList.remove("translate-x-0", "!translate-x-0");
           }
         });
