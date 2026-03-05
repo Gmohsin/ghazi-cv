@@ -486,7 +486,6 @@
         // initial call to set correct state based on screen width
         if (window.innerWidth >= 1024) {
           sidebar.classList.add("translate-x-0");
-          sidebar.classList.remove("!translate-x-0");
         } else {
           sidebar.classList.remove("translate-x-0", "!translate-x-0");
         }
@@ -529,19 +528,7 @@
       #sidebar {
         transition: transform 0.3s ease-in-out;
       }
-      /* when menu toggled on mobile, we add !translate-x-0 via js */
-      #sidebar.!translate-x-0 {
-        transform: translateX(0) !important;
-      }
-      /* base state for mobile: hidden */
-      @media (max-width: 1023px) {
-        #sidebar {
-          transform: translateX(-100%);
-        }
-        #sidebar.!translate-x-0 {
-          transform: translateX(0) !important;
-        }
-      }
+
       /* large screen: always visible */
       @media (min-width: 1024px) {
         #sidebar {
